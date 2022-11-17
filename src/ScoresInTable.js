@@ -1,7 +1,7 @@
 import React from "react";
 import allCountriesData from "./scoresData";
 export default function ScoresInTable() {
-  function compare(a, b) {
+  function sortAccordingToName(a, b) {
     if (a.name < b.name) {
       return -1;
     }
@@ -10,7 +10,24 @@ export default function ScoresInTable() {
     }
     return 0;
   }
-  allCountriesData.sort(compare);
+
+  function sortAccordingToName2(a, b) {
+    if (a.s < b.s) {
+      return -1;
+    }
+    if (a.s > b.s) {
+      return 1;
+    }
+    return 0;
+  }
+  function sortAccordingToScores() {
+    allCountriesData.map((countryData) =>
+      countryData["scores"].sort(sortAccordingToName2)
+    );
+  }
+  allCountriesData.sort(sortAccordingToName);
+  sortAccordingToScores();
+
   return (
     <div>
       {allCountriesData.map((countryData) => (
