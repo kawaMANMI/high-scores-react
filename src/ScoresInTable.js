@@ -1,6 +1,16 @@
 import React from "react";
 import allCountriesData from "./scoresData";
 export default function ScoresInTable() {
+  function compare(a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
+  allCountriesData.sort(compare);
   return (
     <div>
       {allCountriesData.map((countryData) => (
