@@ -49,5 +49,4 @@
 .buttonContainer {
   display: flex;
   flex-direction: row;
-  border: 10px solid red;
 }
